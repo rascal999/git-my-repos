@@ -2,7 +2,7 @@
 
 # u - Undeclared variables
 # x - Trace
-set -u
+set -ux
 
 # CLI configurables
 verbosity=""
@@ -163,7 +163,7 @@ function determine_a_func()
 
 function action_git_clone()
 {
-   action_git_clone_command=$(git --work-tree=${arg_git_dir} clone https://github.com/rascal999/${1}.git 2>/dev/null)
+   action_git_clone_command=$(git clone https://github.com/rascal999/${1}.git ${arg_git_dir}/${1} 2>/dev/null)
    action_git_clone_result=$(echo $?)
 
    # git dir already exists
